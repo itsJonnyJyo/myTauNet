@@ -9,10 +9,7 @@ using System.IO;
 
 namespace TauNet
 {
-    class Program
+    class Client
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
