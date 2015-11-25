@@ -13,6 +13,14 @@ namespace TauNet
     {
         static void Main(string[] args)
         {
+            /*
+            ** Server runs at startup.
+            ** Client is invoked in a new thread when
+            ** user requests to send a message and requests
+            ** a connection with the domain or ip that the 
+            ** user specifies. 
+
+            */
         }
     }
 }

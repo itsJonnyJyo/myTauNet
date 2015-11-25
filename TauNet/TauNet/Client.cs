@@ -11,7 +11,7 @@ namespace TauNet
 {
     class Client
     {
-        static void Main(string[] args)
+        static void sendMessage(string ip_domain, int port)
         {
             try
             {
