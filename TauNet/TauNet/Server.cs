@@ -11,7 +11,7 @@ namespace TauNet
 {
     class Server
     {
-        static void Main(string[] args)
+        static void Listen(string[] args)
         {
             try
             {

@@ -21,6 +21,28 @@ namespace TauNet
             ** user specifies. 
 
             */
+            
+        }
+
+        void menu()
+        {
+            Console.WriteLine("Welcome to TauNet");
+            Console.WriteLine("What would you like to do?");
+            Console.WriteLine("(1) Send a Message.");
+            Console.WriteLine("(2) View Messages.");
+            Console.WriteLine("(3) Quit.");
+            Console.WriteLine("Please enter corresponding number: ");
+            String choice = Console.ReadLine();
+            processChoice(String choice);
+        }
+
+        void processChoice(String userChoice)
+        {
+            switch (userChoice)
+            {
+                case 1:
+
+            }
         }
     }
 }
