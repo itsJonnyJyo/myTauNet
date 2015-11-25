@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauNet", "TauNet\TauNet.csproj", "{4AF5957B-C9B8-422E-A287-D185E3781ED1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauNetPrimary", "TauNet\TauNetPrimary.csproj", "{4AF5957B-C9B8-422E-A287-D185E3781ED1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TauNetServer", "TauNetServer\TauNetServer.csproj", "{534724EF-13D7-4E7B-B81A-5A1A434F42FE}"
 EndProject
