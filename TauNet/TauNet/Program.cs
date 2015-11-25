@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Diagnostics;
 
 namespace TauNet
 {
@@ -21,6 +22,8 @@ namespace TauNet
             ** user specifies. 
 
             */
+            Process serverProcess = new Process();
+            serverProcess.startInfo
             
         }
 
