@@ -35,15 +35,18 @@ namespace TauNet
             Console.WriteLine("(2) View Messages.");
             Console.WriteLine("(3) Quit.");
             Console.WriteLine("Please enter corresponding number: ");
-            String choice = Console.ReadLine();
-            processChoice(String choice);
+            int choice = Console.Read();
+            processChoice(choice);
         }
 
-        void processChoice(String userChoice)
+        void processChoice(int userChoice)
         {
             switch (userChoice)
             {
-                case 1:changes
+                case 1:
+                    //invoke client.sendMessage
+                    break;
+                
 
             }
         }
