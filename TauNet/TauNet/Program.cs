@@ -29,14 +29,26 @@ namespace TauNet
 
         void menu()
         {
-            Console.WriteLine("Welcome to TauNet");
-            Console.WriteLine("What would you like to do?");
-            Console.WriteLine("(1) Send a Message.");
-            Console.WriteLine("(2) View Messages.");
-            Console.WriteLine("(3) Quit.");
-            Console.WriteLine("Please enter corresponding number: ");
-            int choice = Console.Read();
-            processChoice(choice);
+            int choice = 0;
+            int send = 1;
+            int view = 2;
+            int quit = 3;
+            do
+            {
+                Console.WriteLine("Welcome to TauNet");
+                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("(" + send + ") Send a Message.");
+                Console.WriteLine("(" + view + ") View Messages.");
+                Console.WriteLine("(" + quit + ") Quit.");
+                Console.WriteLine("Please enter corresponding number: ");
+                choice = Console.Read();
+                if (choice != quit)
+                //skip the call to processChoice method if user selects quit.
+                {
+                    processChoice(choice);
+                }
+                
+            } while (choice != 3);
         }
 
         void processChoice(int userChoice)
@@ -46,8 +58,12 @@ namespace TauNet
                 case 1:
                     //invoke client.sendMessage
                     break;
-                
-
+                case 2:
+                    //display messages from .txt/database
+                    break;
+                default:
+                    Console.WriteLine("Error: Invalid Input");
+                    break;
             }
         }
     }
