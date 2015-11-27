@@ -22,8 +22,7 @@ namespace TauNet
             ** user specifies. 
 
             */
-            Process serverProcess = new Process();
-            serverProcess.startInfo
+         
             
         }
 

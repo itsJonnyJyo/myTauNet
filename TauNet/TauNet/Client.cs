@@ -47,5 +47,10 @@ namespace TauNet
                 Console.WriteLine("Error..... " + e.StackTrace);
             }
         }
+
+        void selectContact()
+        {
+
+        }
     }
 }
