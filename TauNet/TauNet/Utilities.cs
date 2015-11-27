@@ -10,8 +10,21 @@ using System.Diagnostics;
 
 namespace TauNet
 {
-    class Utilities
+    public class Utilities
     {
+        //read in contacts from .csv
+        void getContacts()
+        {
+            string path = "";
+            //"using" ensure the system handles unused resources
+            using (StreamReader sr = new StreamReader(path))
+            {
+                while (sr.EndOfStream != true)
+                {
 
+                }
+            }
+            
+        }
     }
 }
