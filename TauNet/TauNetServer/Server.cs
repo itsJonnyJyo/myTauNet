@@ -15,7 +15,7 @@ namespace TauNet
         {
             try
             {
-                IPAddress ipAd = IPAddress.Parse("192.168.1.127");
+                IPAddress ipAd = IPAddress.Parse("192.168.1.147");
                 // use local m/c IP address, and 
                 // use the same in the client
 
@@ -35,15 +35,17 @@ namespace TauNet
 
                 byte[] b = new byte[100];
                 int k = s.Receive(b);
-                string path = "messages.txt";
+                string path = @"C:\Users\Jonathan\Source\Repos\Jensen_Jonathan_cs3002\TauNet\messages.txt";
                 Console.WriteLine("Recieved...");
-                StreamWriter sw = new StreamWriter(path, true);
-                for (int i = 0; i < k; i++)
+                using (StreamWriter sw = new StreamWriter(path, true))
                 {
-                    // sw.Write(Convert.ToChar(b[i]));
-                    Console.Write(Convert.ToChar(b[i]));
+                    for (int i = 0; i < k; i++)
+                    {
+                        sw.Write(Convert.ToChar(b[i]));
+                        Console.Write(Convert.ToChar(b[i]));
+                    }
+                    sw.Close();
                 }
-                sw.Close();
 
                 ASCIIEncoding asen = new ASCIIEncoding();
                 s.Send(asen.GetBytes("The string was recieved by the server."));
@@ -59,6 +61,6 @@ namespace TauNet
             }
         }
 
-        
+
     }
 }

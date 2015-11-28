@@ -11,14 +11,14 @@ namespace TauNet
 {
     class Client
     {
-        static void sendMessage(string ip_domain, int port)
+        public void sendMessage(string ip_domain, int port)
         {
             try
             {
                 TcpClient tcpclnt = new TcpClient();
                 Console.WriteLine("Connecting.....");
 
-                tcpclnt.Connect("192.168.1.127", 8001);
+                tcpclnt.Connect(ip_domain, port);
                 // use the ipaddress as in the server program
 
                 Console.WriteLine("Connected");
@@ -48,9 +48,10 @@ namespace TauNet
             }
         }
 
-        void selectContact()
+       /* void selectContact()
         {
 
         }
+        */
     }
 }

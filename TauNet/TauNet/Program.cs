@@ -57,9 +57,14 @@ namespace TauNet
             {
                 case 1:
                     //invoke client.sendMessage
+                    Client myClient = new Client();
+                    myClient.sendMessage("192.168.1.147", 8001);
                     break;
                 case 2:
                     //display messages from .txt/database
+                    Utilities myUtilities = new Utilities();
+
+                    myUtilities.readMessages();
                     break;
                 default:
                     Console.WriteLine("Error: Invalid Input");
