@@ -22,25 +22,26 @@ namespace TauNet
             ** user specifies. 
 
             */
-         
+            menu();
             
         }
 
-        void menu()
+        private static void menu()
         {
             int choice = 0;
             int send = 1;
             int view = 2;
             int quit = 3;
+
+            Console.WriteLine("Welcome to TauNet");
             do
             {
-                Console.WriteLine("Welcome to TauNet");
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("(" + send + ") Send a Message.");
                 Console.WriteLine("(" + view + ") View Messages.");
                 Console.WriteLine("(" + quit + ") Quit.");
                 Console.WriteLine("Please enter corresponding number: ");
-                choice = Console.Read();
+                choice = Convert.ToInt32(Console.ReadLine());
                 if (choice != quit)
                 //skip the call to processChoice method if user selects quit.
                 {
@@ -50,7 +51,7 @@ namespace TauNet
             } while (choice != 3);
         }
 
-        void processChoice(int userChoice)
+        private static void processChoice(int userChoice)
         {
             switch (userChoice)
             {

@@ -59,6 +59,6 @@ namespace TauNet
             }
         }
 
-        void writeMessage()
+        
     }
 }
