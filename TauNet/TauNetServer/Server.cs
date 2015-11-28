@@ -35,9 +35,15 @@ namespace TauNet
 
                 byte[] b = new byte[100];
                 int k = s.Receive(b);
+                string path = "messages.txt";
                 Console.WriteLine("Recieved...");
+                StreamWriter sw = new StreamWriter(path, true);
                 for (int i = 0; i < k; i++)
+                {
+                    // sw.Write(Convert.ToChar(b[i]));
                     Console.Write(Convert.ToChar(b[i]));
+                }
+                sw.Close();
 
                 ASCIIEncoding asen = new ASCIIEncoding();
                 s.Send(asen.GetBytes("The string was recieved by the server."));
@@ -52,5 +58,7 @@ namespace TauNet
                 Console.WriteLine("Error..... " + e.StackTrace);
             }
         }
+
+        void writeMessage()
     }
 }
