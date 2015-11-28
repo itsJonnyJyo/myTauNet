@@ -16,13 +16,19 @@ namespace TauNet
         void getContacts()
         {
             string path = "";
-            //"using" ensure the system handles unused resources
-            using (StreamReader sr = new StreamReader(path))
-            {
-                while (sr.EndOfStream != true)
-                {
 
+            try {
+                //"using" ensures that the system handles unused resources
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    while (sr.EndOfStream != true)
+                    {
+
+                    }
                 }
+            }catch (FileNotFoundException e)
+            {
+                Console.WriteLine(e.Message);
             }
             
         }
