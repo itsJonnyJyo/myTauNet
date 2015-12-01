@@ -50,7 +50,40 @@ namespace TauNet
 
         public byte[] rc4(int messageLength, int rounds, byte[] ivKey)
         {
+            int length = ivKey.Length;
             byte[] keyStream = new byte[messageLength];
+            byte[] schedule = new byte[256];
+            int i = 0;
+            int j = 0;
+            int iPrime = 0;
+            for ( i = 0; i < 256; i++)
+            {
+                schedule[i] = (byte)i;
+            }
+
+            byte temp;
+
+            for ( int k = 0; k <= rounds; k++)
+            {
+                for ( i = 0; i < 256; i++)
+                {
+                    j = (j + schedule[i] + ivKey[i % length]) % 256;
+                    temp = schedule[i];
+                    schedule[i] = schedule[j];
+                    schedule[j] = temp;
+                }
+            }
+            j = 0;
+            for (i = 0; i < messageLength; i++)
+            {
+                iPrime = (i + 1) % 256;
+                j = (j + schedule[iPrime]) % 256;
+                temp = schedule[iPrime];
+                schedule[j] = schedule[iPrime];
+                schedule[iPrime] = temp;
+                keyStream[i] = schedule[(schedule[iPrime] + schedule[j]) % 256];
+            }    
+
 
             return keyStream;
         }
