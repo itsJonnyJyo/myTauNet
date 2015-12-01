@@ -31,14 +31,26 @@ namespace TauNet
             System.Buffer.BlockCopy(key2, 0, keyPrime, 0, key2.Length);
             System.Buffer.BlockCopy(iv, 0, keyPrime, key2.Length, iv.Length);
 
+            byte[] keyStream = rc4(length, rounds, keyPrime);
+            
+            // iv goes at the beginning of the encrypted
+            // message to be transmitted.
+            for (int i = 0; i < 10; i++)
+            {
+                cipherText[i] = iv[i];
+            }
 
+            for( int j = 0; j <= length; j++)
+            {
+                cipherText[j + 10] = (byte)(message[j] ^ keyStream[j]);
+            }
 
             return cipherText;
             }
 
-        public byte[] RC4(int messegeLength, int rounds, byte[] ivKey)
+        public byte[] rc4(int messageLength, int rounds, byte[] ivKey)
         {
-            byte[] keyStream;
+            byte[] keyStream = new byte[messageLength];
 
             return keyStream;
         }
