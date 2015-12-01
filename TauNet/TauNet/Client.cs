@@ -15,10 +15,11 @@ namespace TauNet
         {
             try
             {
-                TcpClient tcpclnt = new TcpClient();
                 Console.WriteLine("Connecting.....");
+                TcpClient tcpclnt = new TcpClient(ip_domain, port);
+                
 
-                tcpclnt.Connect(ip_domain, port);
+                //tcpclnt.Connect(ip_domain, port);
                 // use the ipaddress as in the server program
 
                 Console.WriteLine("Connected");
@@ -29,6 +30,7 @@ namespace TauNet
 
                 ASCIIEncoding asen = new ASCIIEncoding();
                 byte[] ba = asen.GetBytes(str);
+                //encrypt
                 Console.WriteLine("Transmitting.....");
 
                 stm.Write(ba, 0, ba.Length);
