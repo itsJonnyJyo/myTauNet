@@ -28,8 +28,8 @@ namespace TauNet
             ** at a particlular offset to a destination array starting at 
             ** a particular offset
             */
-            System.Buffer.BlockCopy(key2, 0, keyPrime, 0, key2.Length);
-            System.Buffer.BlockCopy(iv, 0, keyPrime, key2.Length, iv.Length);
+            Buffer.BlockCopy(key2, 0, keyPrime, 0, key2.Length);
+            Buffer.BlockCopy(iv, 0, keyPrime, key2.Length, iv.Length);
 
             byte[] keyStream = rc4(length, rounds, keyPrime);
             
@@ -86,6 +86,28 @@ namespace TauNet
 
 
             return keyStream;
+        }
+
+        public byte[] decrypt(byte[] cipherText, int rounds, string key)
+        {
+            byte[] plainText = new byte[cipherText.Length - 10];
+            byte[] iv = new byte[10];
+            byte[] key2 = Encoding.ASCII.GetBytes(key);
+            // cipherText was prepended with the iv upon encryption
+            //copy first 10 bytes of cipherText into iv
+            Buffer.BlockCopy(cipherText, 0, iv, 0, 10);
+            byte[] keyPrime = new byte[key2.Length + iv.Length];
+            Buffer.BlockCopy(key2, 0, keyPrime, 0, key2.Length);
+            Buffer.BlockCopy(iv, 0, keyPrime, key2.Length, iv.Length);
+
+            byte[] keyStream = rc4(cipherText.Length - 10, rounds, keyPrime);
+
+            for (int i = 0; i <= (cipherText.Length - 10); i++)
+            {
+                plainText[i] = (byte)(cipherText[i + 10] ^ keyStream[i]);
+            }
+
+            return plainText;
         }
 
         public void readMessages()
