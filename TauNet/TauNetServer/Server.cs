@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 
+
 namespace TauNet
 {
     class Server
@@ -15,6 +16,8 @@ namespace TauNet
         {
             try
             {
+                Utilities myUtilities = new Utilities();
+
                 IPAddress ipAd = IPAddress.Parse("192.168.1.147");
                 // use local m/c IP address, and 
                 // use the same in the client
@@ -35,14 +38,15 @@ namespace TauNet
 
                 byte[] b = new byte[100];
                 int k = s.Receive(b);
+                byte[] plainText = myUtilities.decrypt(b, 20, "string");
                 string path = @"C:\Users\Jonathan\Source\Repos\Jensen_Jonathan_cs3002\TauNet\messages.txt";
                 Console.WriteLine("Recieved...");
                 using (StreamWriter sw = new StreamWriter(path, true))
                 {
                     for (int i = 0; i < k; i++)
                     {
-                        sw.Write(Convert.ToChar(b[i]));
-                        Console.Write(Convert.ToChar(b[i]));
+                        sw.Write(Convert.ToChar(plainText[i]));
+                        Console.Write(Convert.ToChar(plainText[i]));
                     }
                     sw.Close();
                 }
