@@ -35,10 +35,12 @@ namespace TauNet
 
                 Socket s = myList.AcceptSocket();
                 Console.WriteLine("Connection accepted from " + s.RemoteEndPoint);
-
-                byte[] b = new byte[100];
+                //there was an error here. size of new byte[] was only 100
+                byte[] b = new byte[1024];
                 int k = s.Receive(b);
-                byte[] plainText = myUtilities.decrypt(b, 20, "string");
+                byte[] cipherText = new byte[k];
+                Buffer.BlockCopy(b, 0, cipherText, 0, k);
+                byte[] plainText = myUtilities.decrypt(cipherText, 20, "password");
                 string path = @"C:\Users\Jonathan\Source\Repos\Jensen_Jonathan_cs3002\TauNet\messages.txt";
                 Console.WriteLine("Recieved...");
                 using (StreamWriter sw = new StreamWriter(path, true))

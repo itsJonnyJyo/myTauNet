@@ -25,11 +25,12 @@ namespace TauNet
                 Console.WriteLine("Connected");
                 
 
-                String str = Console.ReadLine();
+                //String str = Console.ReadLine();
                 Stream stm = tcpclnt.GetStream();
 
                 ASCIIEncoding asen = new ASCIIEncoding();
-                byte[] ba = asen.GetBytes(str);
+                //byte[] ba = asen.GetBytes(str);
+                byte[] ba = enterMessage();
                 //encrypt
                 Utilities myUtilities = new Utilities();
                 

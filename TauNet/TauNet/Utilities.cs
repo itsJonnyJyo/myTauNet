@@ -40,7 +40,7 @@ namespace TauNet
                 cipherText[i] = iv[i];
             }
 
-            for( int j = 0; j <= length; j++)
+            for( int j = 0; j < length; j++)
             {
                 cipherText[j + 10] = (byte)(message[j] ^ keyStream[j]);
             }
@@ -102,7 +102,7 @@ namespace TauNet
 
             byte[] keyStream = rc4(cipherText.Length - 10, rounds, keyPrime);
 
-            for (int i = 0; i <= (cipherText.Length - 10); i++)
+            for (int i = 0; i < (cipherText.Length - 10); i++)
             {
                 plainText[i] = (byte)(cipherText[i + 10] ^ keyStream[i]);
             }
