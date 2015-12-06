@@ -36,13 +36,15 @@ namespace TauNet
                 
                 Console.WriteLine("Transmitting.....");
                 byte[] cipherText = myUtilities.encrypt(ba, 20, "password");
+                Console.WriteLine("Finished encryption");
                 stm.Write(cipherText, 0, cipherText.Length);
+                Console.WriteLine("write to stream success");
 
-                byte[] bb = new byte[100];
-                int k = stm.Read(bb, 0, 100);
+                //byte[] bb = new byte[100];
+                //int k = stm.Read(bb, 0, 100);
 
-                for (int i = 0; i < k; i++)
-                    Console.Write(Convert.ToChar(bb[i]));
+                //for (int i = 0; i < k; i++)
+                //    Console.Write(Convert.ToChar(bb[i]));
 
                 tcpclnt.Close();
             }
@@ -72,6 +74,7 @@ namespace TauNet
             string body = (Console.ReadLine().ToLower());
             byte[] bBody = asen.GetBytes(body);
             List<byte> messageList = new List<byte>();
+            //Concat the elements of the message into ONE byte array
             messageList.AddRange(bHeader);
             messageList.AddRange(newLine);
             messageList.AddRange(bSender);

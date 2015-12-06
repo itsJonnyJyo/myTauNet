@@ -15,7 +15,7 @@ namespace TauNet
         public byte[] encrypt(byte[] message, int rounds, string key){
             int length = message.Length;
             byte[] cipherText = new byte[length + 10];
-            byte[] key2 = Encoding.ASCII.GetBytes(key);
+            byte[] key2 = Encoding.UTF8.GetBytes(key);
 
             //create iv
             Random rnd = new Random();
@@ -63,7 +63,7 @@ namespace TauNet
 
             byte temp;
 
-            for ( int k = 0; k <= rounds; k++)
+            for ( int k = 0; k < rounds; k++)
             {
                 for ( i = 0; i < 256; i++)
                 {
@@ -79,8 +79,8 @@ namespace TauNet
                 iPrime = (i + 1) % 256;
                 j = (j + schedule[iPrime]) % 256;
                 temp = schedule[iPrime];
-                schedule[j] = schedule[iPrime];
-                schedule[iPrime] = temp;
+                schedule[iPrime] = schedule[j];
+                schedule[j] = temp;
                 keyStream[i] = schedule[(schedule[iPrime] + schedule[j]) % 256];
             }    
 
@@ -92,7 +92,7 @@ namespace TauNet
         {
             byte[] plainText = new byte[cipherText.Length - 10];
             byte[] iv = new byte[10];
-            byte[] key2 = Encoding.ASCII.GetBytes(key);
+            byte[] key2 = Encoding.UTF8.GetBytes(key);
             // cipherText was prepended with the iv upon encryption
             //copy first 10 bytes of cipherText into iv
             Buffer.BlockCopy(cipherText, 0, iv, 0, 10);

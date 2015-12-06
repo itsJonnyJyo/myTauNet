@@ -58,7 +58,9 @@ namespace TauNet
                 case 1:
                     //invoke client.sendMessage
                     Client myClient = new Client();
-                    myClient.sendMessage("192.168.1.147", 8001);
+                    Console.WriteLine("Who would you like to send a message to? ");
+                    string recipient = Console.ReadLine();
+                    myClient.sendMessage(recipient, 6283);
                     break;
                 case 2:
                     //display messages from .txt/database
