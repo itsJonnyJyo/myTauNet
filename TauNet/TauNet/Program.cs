@@ -41,7 +41,7 @@ namespace TauNet
                 Console.WriteLine("(" + view + ") View Messages.");
                 Console.WriteLine("(" + quit + ") Quit.");
                 Console.WriteLine("Please enter corresponding number: ");
-                choice = Convert.ToInt32(Console.ReadLine());
+               choice = Convert.ToInt32(Console.ReadLine());
                 if (choice != quit)
                 //skip the call to processChoice method if user selects quit.
                 {

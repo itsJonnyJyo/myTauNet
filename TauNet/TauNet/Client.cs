@@ -67,8 +67,7 @@ namespace TauNet
             //List contacts
             string recipient = (Console.ReadLine()).ToLower();
             byte[] bRecipient = asen.GetBytes(recipient);
-            Console.WriteLine("Enter the Header:");
-            string header = (Console.ReadLine()).ToLower();
+            string header = ("version: 0.2");
             byte[] bHeader = asen.GetBytes(header);
             Console.Write("Enter the string to be transmitted : ");
             string body = (Console.ReadLine().ToLower());
@@ -77,12 +76,15 @@ namespace TauNet
             //Concat the elements of the message into ONE byte array
             messageList.AddRange(bHeader);
             messageList.AddRange(newLine);
+            messageList.AddRange(asen.GetBytes("from: "));
             messageList.AddRange(bSender);
             messageList.AddRange(newLine);
+            messageList.AddRange(asen.GetBytes("to: "));
             messageList.AddRange(bRecipient);
             messageList.AddRange(newLine);
             messageList.AddRange(newLine);
             messageList.AddRange(bBody);
+            messageList.AddRange(newLine);
             message = messageList.ToArray();
             //message = new byte[bSender.Length + newLine.Length + bRecipient.Length
             //    + newLine.Length + bHeader.Length + newLine.Length + bBody.Length];
