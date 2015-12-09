@@ -18,12 +18,12 @@ namespace TauNet
             {
                 
                 
-                    Utilities myUtilities = new Utilities();
+                Utilities myUtilities = new Utilities();
 
-                    IPAddress ipAd = IPAddress.Parse("192.168.1.149");
+                IPAddress ipAd = IPAddress.Parse("192.168.1.149");
 
-                    /* Initializes the Listener */
-                    TcpListener myList = new TcpListener(ipAd, 6283);
+                /* Initializes the Listener */
+                TcpListener myList = new TcpListener(ipAd, 6283);
                 while (true)
                 {
                     /* Start Listeneting at the specified port */
@@ -42,14 +42,17 @@ namespace TauNet
                     byte[] b = new byte[1024];
                     try
                     {
+                        //recieve bytestream. store length in k
                         int k = s.Receive(b);
 
+                        //handle 0 length message
                         if (k > 0)
                         {
+                            //decrypt incomming message and write it to file where 
+                            //the user can read it from the client side
                             byte[] cipherText = new byte[k];
                             Buffer.BlockCopy(b, 0, cipherText, 0, k);
                             byte[] plainText = myUtilities.decrypt(cipherText, 20, "password");
-                            //string path = @"C:\Users\Jonathan\Source\Repos\Jensen_Jonathan_cs3002\TauNet\messages.txt";
                             Console.WriteLine("Recieved...");
                             using (StreamWriter sw = new StreamWriter(path, true))
                             {
@@ -73,11 +76,6 @@ namespace TauNet
                         }
                         Console.WriteLine("{0} Error Code: {1}.", e.Message, e.ErrorCode);
                     }
-
-                    //ASCIIEncoding asen = new ASCIIEncoding();
-                    //s.Send(asen.GetBytes("The string was recieved by the server."));
-                    //Console.WriteLine("\nSent Acknowledgement");
-                    /* clean up */
                     s.Close();
                 }
                 myList.Stop();
@@ -87,9 +85,7 @@ namespace TauNet
             catch (Exception e)
             {
                 Console.WriteLine("Error..... " + e.StackTrace);
-            }
-
-           
+            }   
         }
         //maintains record of connections.
         static void serverLog(Socket s)
@@ -98,12 +94,10 @@ namespace TauNet
             Console.WriteLine("Recieved...");
             using (StreamWriter sw = new StreamWriter(path, true))
             {
-
                 sw.WriteLine("Connection accepted from " + s.RemoteEndPoint);
 
                 sw.Close();
             }
-
             Console.WriteLine("Connection accepted from " + s.RemoteEndPoint);
         }
     }
