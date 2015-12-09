@@ -9,21 +9,21 @@ namespace TauNet
     class contact
     {
             string username;
-            string domain;
+            string hostname;
 
             public contact(string s1, string s2)
             {
                 username = s1;
-                domain = s2;
+                hostname = s2;
             }
 
             public string getUsername()
             {
                 return username;
             }
-            public string getDomain()
+            public string getHostname()
             {
-                return domain;
+                return hostname;
             }
 
     }

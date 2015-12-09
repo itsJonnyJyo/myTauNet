@@ -46,8 +46,18 @@ namespace TauNet
             for (int i = 0; i < contactArray.Length; i++)
             {
                 Console.Write("(" + i + ") USERNAME: " + contactArray[i].getUsername());
-                Console.WriteLine("; HOSTNAME: " + contactArray[i].getDomain());
+                Console.WriteLine("; HOSTNAME: " + contactArray[i].getHostname());
             } 
+        }
+
+        public string returnHostname(int index)
+        {
+           return contacts[index].getHostname();
+        }
+
+        public string returnUsername(int index)
+        {
+            return contacts[index].getUsername();
         }
     }
 }

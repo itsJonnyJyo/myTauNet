@@ -65,8 +65,8 @@ namespace TauNet
                     myContacts.listAll();
                     Console.WriteLine("Please enter the number corresponding to the" +
                         " desired recipient: ");
-                    string recipient = Console.ReadLine();
-                    myClient.sendMessage(recipient, 6283);
+                    int recipient = Convert.ToInt32(Console.ReadLine());
+                    myClient.sendMessage(recipient, 6283, myContacts);
                     break;
                 case 2:
                     //display messages from .txt/database

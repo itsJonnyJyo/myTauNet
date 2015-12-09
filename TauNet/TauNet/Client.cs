@@ -11,30 +11,26 @@ namespace TauNet
 {
     class Client
     {
-        public void sendMessage(string hostname, int port)
+        public void sendMessage(int hostname, int port, addressBook myContacts)
         {
             try
             {   
-
-                ASCIIEncoding asen = new ASCIIEncoding();
-                //byte[] ba = asen.GetBytes(str);
-                byte[] ba = enterMessage();
-                TcpClient tcpclnt = new TcpClient(hostname, port);
-                Stream stm = tcpclnt.GetStream();
-                //encrypt
-                Utilities myUtilities = new Utilities();
                 
+                ASCIIEncoding asen = new ASCIIEncoding();
+                Utilities myUtilities = new Utilities();
+                //byte[] ba = asen.GetBytes(str);
+                byte[] ba = enterMessage(hostname, myContacts);
+                Console.WriteLine("Connecting.....");
+                TcpClient tcpclnt = new TcpClient(myContacts.returnHostname(hostname), port);
+                Stream stm = tcpclnt.GetStream();
+                            
                 Console.WriteLine("Transmitting.....");
+                //encrypt the message
                 byte[] cipherText = myUtilities.encrypt(ba, 20, "password");
-                Console.WriteLine("Finished encryption");
+                //Console.WriteLine("Finished encryption");
+                //write cipherText to current stream
                 stm.Write(cipherText, 0, cipherText.Length);
-                Console.WriteLine("write to stream success");
-
-                //byte[] bb = new byte[100];
-                //int k = stm.Read(bb, 0, 100);
-
-                //for (int i = 0; i < k; i++)
-                //    Console.Write(Convert.ToChar(bb[i]));
+                Console.WriteLine("Messege send succesful");
 
                 tcpclnt.Close();
             }
@@ -46,16 +42,14 @@ namespace TauNet
         }
         //prompt user for input and format input
         //to the protocol specification
-        byte[] enterMessage() {
+        byte[] enterMessage(int hostname, addressBook myContacts) {
             //code 13 and code 10 in byte array for NL
             byte[] newLine = Encoding.ASCII.GetBytes(Environment.NewLine);
             ASCIIEncoding asen = new ASCIIEncoding();
             byte[] message;
             string sender = "itsjonnyjyo";
             byte[] bSender = asen.GetBytes(sender);
-            Console.WriteLine("Enter Recipient:");
-            //List contacts
-            string recipient = (Console.ReadLine()).ToLower();
+            string recipient = (myContacts.returnUsername(hostname)).ToLower();
             byte[] bRecipient = asen.GetBytes(recipient);
             string header = ("version: 0.2");
             byte[] bHeader = asen.GetBytes(header);
