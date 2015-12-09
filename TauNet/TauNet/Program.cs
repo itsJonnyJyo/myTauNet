@@ -8,7 +8,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Diagnostics;
 
-namespace TauNet
+namespace TauNetServer
 {
     class Program
     {

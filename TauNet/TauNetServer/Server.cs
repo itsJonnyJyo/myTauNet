@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
 
 
-namespace TauNet
+namespace TauNetServer
 {
     class Server
     {
@@ -18,7 +15,7 @@ namespace TauNet
             {
                 
                 
-                Utilities myUtilities = new Utilities();
+                ServerUtilities myUtilities = new ServerUtilities();
                 //current machines local ip must be used here
                 IPAddress ipAd = IPAddress.Parse("192.168.1.149");
 
