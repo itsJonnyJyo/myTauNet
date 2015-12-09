@@ -10,6 +10,8 @@ using System.Diagnostics;
 
 namespace TauNet
 {
+    
+
     public class Utilities
     {
         public byte[] encrypt(byte[] message, int rounds, string key){
@@ -130,25 +132,6 @@ namespace TauNet
                 Console.WriteLine(e.Message);
             }
         }
-        //read in contacts from .csv
-        void getContacts()
-        {
-            string path = "";
-
-            try {
-                //"using" ensures that the system handles unused resources
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    while (sr.EndOfStream != true)
-                    {
-
-                    }
-                }
-            }catch (FileNotFoundException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            
-        }
+       
     }
 }
