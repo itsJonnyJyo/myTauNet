@@ -57,8 +57,8 @@ namespace TauNet
                             using (StreamWriter sw = new StreamWriter(path, true))
                             {
 
-                                sw.Write(Encoding.UTF8.GetString(plainText));
-                                Console.Write(Encoding.UTF8.GetString(plainText));
+                                sw.WriteLine(Encoding.UTF8.GetString(plainText));
+                                Console.WriteLine(Encoding.UTF8.GetString(plainText));
 
 
                                 sw.Close();
@@ -70,7 +70,7 @@ namespace TauNet
                         using (StreamWriter sw = new StreamWriter(path, true))
                         {
 
-                            sw.Write("{0} Error Code: {1}.", e.Message, e.ErrorCode);
+                            sw.WriteLine("{0} Error Code: {1}.", e.Message, e.ErrorCode);
 
                             sw.Close();
                         }

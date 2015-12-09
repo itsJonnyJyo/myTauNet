@@ -25,10 +25,14 @@ namespace TauNet
                     char[] delimiters = { ',' };
                     while (sr.EndOfStream != true)
                     {  
+                        //read one contact from .csv and parse into "words"
                         words = (sr.ReadLine()).Split(delimiters);
                       
+                        //create new contact with the username and hostname currently 
+                        //stored in words
                         contacts.Add(new contact(words[0], words[1]));
 
+                        //clear "words" for next iteration of the loop
                         Array.Clear(words, 0, words.Length);
                     }
                 }

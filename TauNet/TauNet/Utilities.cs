@@ -86,7 +86,6 @@ namespace TauNet
                 keyStream[i] = schedule[(schedule[iPrime] + schedule[j]) % 256];
             }    
 
-
             return keyStream;
         }
 
@@ -131,7 +130,6 @@ namespace TauNet
             {
                 Console.WriteLine(e.Message);
             }
-        }
-       
+        }    
     }
 }

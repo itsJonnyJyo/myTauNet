@@ -44,13 +44,18 @@ namespace TauNet
                 Console.WriteLine("(" + contacts + ") List Contacts.");
                 Console.WriteLine("(" + quit + ") Quit.");
                 Console.WriteLine("Please enter corresponding number: ");
-                choice = Convert.ToInt32(Console.ReadLine());
-                if (choice != quit)
-                //skip the call to processChoice method if user selects quit.
-                {
-                    processChoice(choice, myContacts);
+                try {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                    if (choice != quit)
+                    //skip the call to processChoice method if user selects quit.
+                    {
+                        processChoice(choice, myContacts);
+                    }
                 }
-                
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error..... " + e.StackTrace);
+                }
             } while (choice != quit);
         }
 
