@@ -3,7 +3,6 @@ BUILD INSTRUCTIONS:
    
   All filepaths within the sourcecode must be changed to a valid filepath on the build machine in order
   to work properly.
-  Contacts.csv must be supplied as it is not pushed to the repository (in order to work properly).
   The Build machines local IP address must be supplied  to "server.cs" in order for the server
   to function properly.
   
