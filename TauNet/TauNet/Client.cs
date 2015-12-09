@@ -11,26 +11,16 @@ namespace TauNet
 {
     class Client
     {
-        public void sendMessage(string ip_domain, int port)
+        public void sendMessage(string hostname, int port)
         {
             try
-            {
-                Console.WriteLine("Connecting.....");
-                TcpClient tcpclnt = new TcpClient(ip_domain, port);
-                
-
-                //tcpclnt.Connect(ip_domain, port);
-                // use the ipaddress as in the server program
-
-                Console.WriteLine("Connected");
-                
-
-                //String str = Console.ReadLine();
-                Stream stm = tcpclnt.GetStream();
+            {   
 
                 ASCIIEncoding asen = new ASCIIEncoding();
                 //byte[] ba = asen.GetBytes(str);
                 byte[] ba = enterMessage();
+                TcpClient tcpclnt = new TcpClient(hostname, port);
+                Stream stm = tcpclnt.GetStream();
                 //encrypt
                 Utilities myUtilities = new Utilities();
                 

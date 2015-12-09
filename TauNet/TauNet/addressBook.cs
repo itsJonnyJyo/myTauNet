@@ -13,7 +13,7 @@ namespace TauNet
         List<contact> contacts = new List<contact>();
 
         //read in contacts from .csv
-        void getContacts()
+        public addressBook()
         {
             string path = @"C:\Users\Jonathan\Source\Repos\Jensen_Jonathan_cs3002\TauNet\contacts.csv";
             string[] words;
@@ -38,6 +38,16 @@ namespace TauNet
                 Console.WriteLine(e.Message);
             }
 
+        }
+        public void listAll()
+        {
+            contact[] contactArray = contacts.ToArray();
+            
+            for (int i = 0; i < contactArray.Length; i++)
+            {
+                Console.Write("(" + i + ") USERNAME: " + contactArray[i].getUsername());
+                Console.WriteLine("; HOSTNAME: " + contactArray[i].getDomain());
+            } 
         }
     }
 }

@@ -99,7 +99,7 @@ namespace TauNet
             using (StreamWriter sw = new StreamWriter(path, true))
             {
 
-                sw.Write("Connection accepted from " + s.RemoteEndPoint);
+                sw.WriteLine("Connection accepted from " + s.RemoteEndPoint);
 
                 sw.Close();
             }

@@ -22,16 +22,18 @@ namespace TauNet
             ** user specifies. 
 
             */
-            menu();
+            addressBook myContacts = new addressBook();
+            menu(myContacts);
             
         }
 
-        private static void menu()
+        private static void menu(addressBook myContacts)
         {
             int choice = 0;
             int send = 1;
             int view = 2;
-            int quit = 3;
+            int contacts = 3;
+            int quit = 4;
 
             Console.WriteLine("Welcome to TauNet");
             do
@@ -39,19 +41,20 @@ namespace TauNet
                 Console.WriteLine("What would you like to do?");
                 Console.WriteLine("(" + send + ") Send a Message.");
                 Console.WriteLine("(" + view + ") View Messages.");
+                Console.WriteLine("(" + contacts + ") List Contacts.");
                 Console.WriteLine("(" + quit + ") Quit.");
                 Console.WriteLine("Please enter corresponding number: ");
-               choice = Convert.ToInt32(Console.ReadLine());
+                choice = Convert.ToInt32(Console.ReadLine());
                 if (choice != quit)
                 //skip the call to processChoice method if user selects quit.
                 {
-                    processChoice(choice);
+                    processChoice(choice, myContacts);
                 }
                 
-            } while (choice != 3);
+            } while (choice != quit);
         }
 
-        private static void processChoice(int userChoice)
+        private static void processChoice(int userChoice, addressBook myContacts)
         {
             switch (userChoice)
             {
@@ -59,6 +62,9 @@ namespace TauNet
                     //invoke client.sendMessage
                     Client myClient = new Client();
                     Console.WriteLine("Who would you like to send a message to? ");
+                    myContacts.listAll();
+                    Console.WriteLine("Please enter the number corresponding to the" +
+                        " desired recipient: ");
                     string recipient = Console.ReadLine();
                     myClient.sendMessage(recipient, 6283);
                     break;
@@ -67,6 +73,10 @@ namespace TauNet
                     Utilities myUtilities = new Utilities();
 
                     myUtilities.readMessages();
+                    break;
+                case 3:
+                    //list contacts
+                    myContacts.listAll();
                     break;
                 default:
                     Console.WriteLine("Error: Invalid Input");
