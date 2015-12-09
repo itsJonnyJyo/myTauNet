@@ -15,10 +15,7 @@ namespace TauNet
         {
             try
             {   
-                
-                ASCIIEncoding asen = new ASCIIEncoding();
                 Utilities myUtilities = new Utilities();
-                //byte[] ba = asen.GetBytes(str);
                 byte[] ba = enterMessage(hostname, myContacts);
                 Console.WriteLine("Connecting.....");
                 TcpClient tcpclnt = new TcpClient(myContacts.returnHostname(hostname), port);
@@ -70,15 +67,7 @@ namespace TauNet
             messageList.AddRange(bBody);
             messageList.AddRange(newLine);
             message = messageList.ToArray();
-            //message = new byte[bSender.Length + newLine.Length + bRecipient.Length
-            //    + newLine.Length + bHeader.Length + newLine.Length + bBody.Length];
             return message;
         }
-
-       /* void selectContact()
-        {
-
-        }
-        */
     }
 }

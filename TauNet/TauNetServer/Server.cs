@@ -19,7 +19,7 @@ namespace TauNet
                 
                 
                 Utilities myUtilities = new Utilities();
-
+                //current machines local ip must be used here
                 IPAddress ipAd = IPAddress.Parse("192.168.1.149");
 
                 /* Initializes the Listener */
@@ -38,7 +38,6 @@ namespace TauNet
 
                     serverLog(s);
                     string path = @"C:\Users\Jonathan\Source\Repos\Jensen_Jonathan_cs3002\TauNet\messages.txt";
-                    //there was an error here. size of new byte[] was only 100
                     byte[] b = new byte[1024];
                     try
                     {
