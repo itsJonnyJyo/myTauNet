@@ -1,0 +1,55 @@
+﻿version: 0.2
+from: barton
+to: itsjonnyjyo
+
+2015-12-08 18:37:36-0800 73.37.66.24:60670
+version: 0.2
+from: itsjonnyjyo
+to: barton
+
+;alskdhf;uhasldkflaksjdtesting 12345678
+
+version: 0.2
+from: barton
+to: itsjonnyjyo
+
+2015-12-08 20:06:33-0800 73.37.66.24:61738
+version: 0.2
+from: itsjonnyjyo
+to: barton
+
+hello there, this is a testy test
+
+version: 0.2
+from: barton
+to: itsjonnyjyo
+
+2015-12-08 20:09:49-0800 73.37.66.24:61765
+version: 0.2
+from: itsjonnyjyo
+to: barton
+
+slad;kjffffffffffffffffffffffffffffffffffffflkjasdhf;kasjef;lawekhgk;afsdnhmjiktyujtydhrtsgfsdfgfujykjyerwdsfsgdhuykjyterwfdsfghjuyehewfvfbgnuykjyhtgfghujthrhydhgfbyudrtcvctxeysdyuggvcftdxrsweatsryedtyiubhngvyftcdrxsexrdctfvygibuhiyfutdryxsetzatsxrdyctfu
+
+version: 0.2
+from: barton
+to: itsjonnyjyo
+
+2015-12-08 22:37:39-0800 73.37.66.24:64053
+version: 0.2
+from: itsjonnyjyo
+to: barton
+
+hello
+
+version: 0.2
+from: barton
+to: itsjonnyjyo
+
+2015-12-08 22:59:53-0800 73.37.66.24:64251
+version: 0.2
+from: itsjonnyjyo
+to: barton
+
+hello
+
