@@ -1,4 +1,4 @@
-﻿
+﻿// copyright (c) Jonathan Jensen
 
 namespace TauNetServer
 {

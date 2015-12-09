@@ -1,4 +1,5 @@
-﻿using System;
+﻿// copyright (c) Jonathan Jensen
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
